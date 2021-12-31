@@ -1,0 +1,34 @@
+<ng-container *ngIf="wire !== undefined">
+  <p *ngIf="error != undefined" class="errors">{{ error }}</p>
+  <div class="expedition-wrapper">
+    <div class="wireframe">
+      <ng-container *ngFor="let rover of rovers">
+        <app-rover
+          [rover]="rover"
+          [rows]="wire.length"
+          (selected)="onSelectedRover($event)"
+          [isSelected]="selectedRover?.id === rover.id"
+          (finishedMove)="getRovers()"
+          [destinationCommands]="destinationPath"
+        ></app-rover>
+      </ng-container>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let line of wire">
+          <td *ngFor="let cell of line" class="cell">
+            <app-grid-cell [cell]="cell" (click)="selectCell(cell)"></app-grid-cell>
+          </td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+    <app-control-table
+      (deployFormSubmitted)="onDeployFormSubmitted($event)"
+      [selectedRover]="selectedRover"
+      [rovers]="rovers"
+      (changeSelectedRover)="onSelectedRover($event)"
+      (pathFormSubmitted)="onPathFormSubmitted($event)"
+    ></app-control-table>
+  </div>
+</ng-container>

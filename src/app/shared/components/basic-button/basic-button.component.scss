@@ -1,0 +1,14 @@
+.basic-button {
+  width: 100%;
+  height: 2rem;
+  border: gray 1px solid;
+  border-radius: 1rem;
+  outline: none;
+
+  &:hover:not(:disabled) {
+    border: none;
+    background: red;
+    color: white;
+    cursor: pointer;
+  }
+}

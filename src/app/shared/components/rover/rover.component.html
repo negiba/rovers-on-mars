@@ -1,0 +1,10 @@
+<button
+  [id]="'rover'+rover.id"
+  [ngClass]="['rover', rover.direction.toLowerCase()]"
+  [class.selected]="isSelected"
+  [style.top]="position.top"
+  [style.left]="position.left"
+  (click)="roverStatus = rover.id"
+>
+  <span *ngIf="!translating">&#8593;</span>
+</button>

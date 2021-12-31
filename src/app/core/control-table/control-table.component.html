@@ -1,0 +1,62 @@
+<aside class="controls">
+  <div class="deploySection">
+    <p>Enter starting coordinates!</p>
+    <form class="form" [formGroup]="deployForm">
+      <div class="item">
+        <label for="posX">Position X</label>
+        <input type="number" id="posX" value="1" formControlName="positionX">
+      </div>
+      <div class="item">
+        <label for="posY">Position Y</label>
+        <input type="number" id="posY" value="1" formControlName="positionY">
+      </div>
+      <div class="item">
+        <label for="direction">Direction</label>
+        <select id="direction" formControlName="direction">
+          <option value="N">North</option>
+          <option value="E">East</option>
+          <option value="S">South</option>
+          <option value="W">West</option>
+        </select>
+      </div>
+      <div class="button">
+        <app-basic-button [buttonText]="'Deploy Rover'" (buttonClicked)="submit($event)"></app-basic-button>
+      </div>
+    </form>
+  </div>
+  <div class="classic">
+    <p>Choose Rover from the List</p>
+    <select (change)="changeRover($event)">
+      <option>SELECT ROVER</option>
+      <option *ngFor="let rover of rovers" [value]="rover.id">Rover {{rover.id}} on [{{rover.positionX}}, {{ rover.positionY}}]</option>
+    </select>
+  </div>
+  <div class="deploySection">
+    <p>Enter ending coordinates!</p>
+    <form class="form" [formGroup]="pathForm">
+      <div class="item">
+        <label for="pfX">Position X</label>
+        <input type="number" id="pfX" value="1" formControlName="destinationCoordinateX">
+      </div>
+      <div class="item">
+        <label for="pfY">Position Y</label>
+        <input type="number" id="pfY" value="1" formControlName="destinationCoordinateY">
+      </div>
+      <div class="button">
+        <app-basic-button [buttonText]="'Show Path'" (buttonClicked)="showPath($event)"></app-basic-button>
+      </div>
+    </form>
+  </div>
+  <div class="classic">
+    <p>Movement Commands</p>
+    <div class="button">
+      <app-basic-button [buttonText]="'Rotate LEFT'" (buttonClicked)="startRotateLeft()" [isDisabled]="selectedRover === undefined"></app-basic-button>
+    </div>
+    <div class="button">
+      <app-basic-button [buttonText]="'Rotate RIGHT'" (buttonClicked)="startRotateRight()" [isDisabled]="selectedRover === undefined"></app-basic-button>
+    </div>
+    <div class="button">
+      <app-basic-button [buttonText]="'Move Forward'" (buttonClicked)="startMovingForward()" [isDisabled]="selectedRover === undefined"></app-basic-button>
+    </div>
+  </div>
+</aside>

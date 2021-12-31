@@ -1,0 +1,52 @@
+.errors {
+  display: flex;
+  justify-content: center;
+  height: 2rem;
+}
+
+.expedition-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: white;
+}
+
+.wireframe {
+  position: relative;
+  width: 100%;
+}
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0;
+}
+
+.cell {
+  border: greenyellow 1px solid;
+  margin: 1px;
+  font-size: .6rem;
+  width: 5rem;
+  height: 5rem;
+  text-align: center;
+  vertical-align: middle;
+
+  &:hover {
+    background: gray;
+    cursor: pointer;
+  }
+}
+
+.controls {
+  display: flex;
+  flex-flow: column;
+  width: 10rem;
+  height: calc(100vh - 15rem);
+  border: solid 1px black;
+
+  & div {
+    flex-grow: 1;
+    border: solid 1px gray;
+  }
+}

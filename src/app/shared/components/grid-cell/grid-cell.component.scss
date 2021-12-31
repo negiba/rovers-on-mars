@@ -1,0 +1,9 @@
+.cell {
+  margin: 0;
+  padding: 0;
+
+  &:hover {
+    background: gray;
+    cursor: pointer;
+  }
+}

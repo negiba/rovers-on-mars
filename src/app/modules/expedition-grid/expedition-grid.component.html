@@ -1,0 +1,19 @@
+<div class="expedition">
+  <p>Please enter dimensions for expedition grid</p>
+  <form [formGroup]="gridDimensionsForm">
+    <div>
+      <label for="columns">Enter Columns</label>
+      <input type="number" id="columns" value="0" formControlName="columns">
+    </div>
+
+    <div>
+      <label for="rows">Enter Rows</label>
+      <input type="number" id="rows" value="0" formControlName="rows">
+
+    </div>
+
+    <app-basic-button [buttonText]="'Apply'" (buttonClicked)="onApplyButtonClicked($event)" [isDisabled]="!gridDimensionsForm.valid"></app-basic-button>
+    <p *ngIf="!gridDimensionsForm.valid && gridDimensionsForm.controls['columns'].errors || gridDimensionsForm.controls['rows'].errors">Please enter valid number range: from 1 to 100</p>
+
+  </form>
+</div>

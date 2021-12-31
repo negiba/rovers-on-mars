@@ -1,0 +1,67 @@
+.controls {
+  display: flex;
+  flex-flow: column;
+  width: 10rem;
+  height: calc(100vh - 15rem);
+  border: greenyellow 1px solid;
+
+  & p {
+    text-align: center;
+  }
+
+  & select {
+    outline: none;
+  }
+
+  & .classic {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+    padding-bottom: 1rem;
+    border-bottom: solid 1px white;
+    gap: .5rem;
+  }
+
+  & .movements {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+    gap: .5rem;
+  }
+
+  & .deploySection {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    border-bottom: solid 1px white;
+    margin: .5rem;
+
+    & .form {
+      display: flex;
+      flex-direction: column;
+
+      & .item {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 1rem;
+        border: none;
+        font-size: 0.8rem;
+        justify-content: center;
+        align-items: center;
+
+        & input, select {
+          max-width: 4rem;
+          margin-left: 1rem;
+          outline: none;
+        }
+      }
+
+      & .button {
+        margin: 0 auto;
+        width: 8rem;
+      }
+    }
+  }
+
+}
